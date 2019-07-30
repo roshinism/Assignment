@@ -1,0 +1,44 @@
+
+<p>edit works!</p>
+<div>
+    The Product is {{selectedProduct}}
+</div>
+<br><br>
+
+<div>
+        <form #productForm="ngForm">
+            Id:{{id}}<br>
+        Name: <input type="text" name="name" [(ngModel)]="name">
+        <br>
+        Category: <input type="text" name="category" [(ngModel)]="category">
+        <br>
+        Price: <input type="number" name="price" [(ngModel)]="price">
+    <br>
+                <button (click)= "addProduct(productForm)">Add</button>
+               <button (click)= "updateProductNow()">Update</button>
+        </form>
+        
+    </div>
+    <br><br>
+
+
+<div>
+    <table border="1" align=center>
+        <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor="let a of allProducts; let counter = index">
+                <td>{{a.id}}</td>
+                <td>{{a.name }}</td>
+                <td>{{a.category}}</td>
+                <td>{{a.price}}</td>
+                <td><button (click)="viewProduct(counter)">View</button></td>
+                <td><button (click)="deleteProduct(counter)">Delete</button></td>
+                <td><button (click)="updateProduct(counter)">Update</button></td>
+            </tr>
+            </table>
+            </div>
